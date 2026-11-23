@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bgnn-lpa-research"
+version = "0.1.0"
+description = "Molecular BGNN training and latent-posterior alignment analysis"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "torch==2.7.0", "torch-geometric==2.6.1", "rdkit==2024.9.6",
+  "numpy==2.2.6", "pandas==2.2.3", "scipy==1.15.3",
+  "scikit-learn==1.6.1", "matplotlib==3.10.3"
+]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2608.20758"
+
+[project.scripts]
+bgnn-train = "bgnn.training:main"
+bgnn-analyze = "bgnn.analysis:main"
+bgnn-plot = "bgnn.plotting:main"
+
+[tool.setuptools.packages.find]
+include = ["bgnn*"]
